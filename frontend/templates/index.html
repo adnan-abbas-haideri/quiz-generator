@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Select a Quiz</h1>
+    <ul>
+        {% for quiz in quizzes %}
+            <li><a href="{{ url_for('quiz.quiz', quiz_id=quiz.id) }}">{{ quiz.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

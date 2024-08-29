@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ quiz.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ quiz.title }}</h1>
+    <form action="{{ url_for('quiz.submit', quiz_id=quiz.id) }}" method="POST">
+        {% for question in quiz.questions %}
+            <p>{{ question.text }}</p>
+            <input type="text" name="question-{{ question.id }}">
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
